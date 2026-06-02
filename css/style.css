@@ -1,0 +1,335 @@
+/* オリジナルのフォントを定義する */
+@font-face {
+  font-family: 'MyFont';
+  src: url('fonts/花鳥風月.ttf') format('truetype');
+}
+
+body {
+    font-family: 'MyFont', sans-serif;
+    background: #EEAECA;
+    background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+    color: #333;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+/* =========================================
+   ヘッダー（PC版基本スタイル）
+   ========================================= */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    max-width: 1200px;    /* PCで広がりすぎないように制限 */
+    margin: 20px auto 0;  /* 画面の中央に配置 */
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px); /* 背景をほんのりぼかす高級感 */
+    border-radius: 100px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.logo a {
+    color: #7e7e7e;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.logo a:hover {
+    color: #be2361;
+}
+
+.nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 30px;
+}
+
+.nav a {
+    color: #7e7e7e;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.nav a:hover {
+    color: #be2361;
+}
+
+/* ★JSで「今いるページ」に付与される上品なアクティブスタイル */
+.nav a.is-current {
+    color: #be2361;
+    border-bottom: 2px solid #be2361;
+    border-radius: 0;
+}
+
+/* =========================================
+   メインビジュアル
+   ========================================= */
+.top {
+    text-align: center;
+    padding: 60px 20px;
+    margin-bottom: 20px;
+}
+
+.top-logo {
+    object-fit: contain;
+    width: 100%;
+    max-width: 320px;   
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1)); /* ロゴに薄い影 */
+}
+
+.heading-36 {
+    position: relative;
+    display: inline-block;
+    padding: .7em 1.3em;
+    color: #333333;
+    font-size: 28px;
+    margin-top: 20px;
+}
+
+.heading-36::before,
+.heading-36::after {
+    display: inline-block;
+    position: absolute;
+    width: 1em;
+    height: 1em;
+    content: '';
+}
+
+.heading-36::before {
+    top: 0;
+    left: 0;
+    border-top: 3px solid #be2361;
+    border-left: 3px solid #be2361;
+}
+
+.heading-36::after {
+    bottom: 0;
+    right: 0;
+    border-bottom: 3px solid #be2361;
+    border-right: 3px solid #be2361;
+}
+
+/* =========================================
+   項目ボックス（PC版：画面いっぱいのリッチグリッド）
+   ========================================= */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto 100px;
+    padding: 0;
+    background: transparent; /* 背景を透明にしてスッキリさせる */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 綺麗な2列 */
+    gap: 40px; /* 余白を広げてチープさを解消 */
+}
+
+.box-015 {
+    text-decoration: none;
+    background: #ffffffa0; /* 清潔感のある白 */
+    width: 100%;
+    min-height: 220px;   /* 高さを柔軟に */
+    box-sizing: border-box;
+    padding: 40px 30px;  /* 内側余白を贅沢にとる */
+    border-radius: 16px; /* 角丸を少し滑らかに */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* 上品で薄い広範囲の影 */
+    border: double 2px #000000; /* 二重線で高級感を演出 */
+    /* 高級感を出すイージングアニメーションの設定 */
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* ★ホバーアニメーション：スッと浮き上がる効果 */
+.box-015:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+.box-015 h2 {
+    font-size: 26px;
+    color: #be2361;
+    margin: 0 0 15px 0;
+    letter-spacing: 1px;
+}
+
+.box-015 p {
+    font-size: 16px;
+    color: #555555;
+    line-height: 1.6;
+    margin: 4px 0;
+    font-weight: bold;
+}
+
+/* =========================================
+   フッター
+   ========================================= */
+.footer-2 {
+    background-color: #0d47a1;
+    color: #fff;
+    padding: 50px 20px 30px;
+}
+
+.footer-2__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-2__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    padding-bottom: 30px;
+    margin-bottom: 20px;
+}
+
+.footer-2__logo a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.footer-2__sns {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 20px;
+}
+
+.footer-2__sns a {
+    color: #fff;
+    transition: opacity 0.3s;
+}
+
+.footer-2__sns a:hover {
+    opacity: 0.7;
+}
+
+.footer-2__sns svg {
+    width: 24px;
+    height: 24px;
+}
+
+.footer-2__copyright {
+    text-align: center;
+}
+
+.footer-2__copyright small {
+    font-size: 14px;
+    color: rgba(255,255,255,0.6);
+}
+
+/* =========================================
+   レスポンシブ：PC用設定（ハンバーガーを隠す）
+   ========================================= */
+@media screen and (min-width: 769px) {
+    .hamburger {
+        display: none;
+    }
+}
+
+/* =========================================
+   レスポンシブ：スマホ用設定（768px以下）
+   ========================================= */
+@media screen and (max-width: 768px) {
+    .header {
+        margin: 15px;
+        padding: 12px 20px;
+    }
+
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 18px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        z-index: 100;
+    }
+
+    .hamburger span {
+        width: 100%;
+        height: 2px;
+        background-color: #7e7e7e;
+        transition: all 0.3s ease-in-out;
+    }
+
+    /* ハンバーガー「×」アニメーション */
+    .hamburger.is-active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .hamburger.is-active span:nth-child(2) { opacity: 0; }
+    .hamburger.is-active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+    /* スマホ用中央開閉メニュー */
+    .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(190, 230, 255, 0.96);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.4s ease;
+        z-index: 99;
+    }
+
+    .nav.is-active {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .nav ul {
+        flex-direction: column;
+        gap: 35px;
+        text-align: center;
+    }
+
+    .nav a {
+        font-size: 22px;
+    }
+    
+    .nav a.is-current {
+        border-bottom: 3px solid #be2361;
+    }
+
+    /* スマホでは項目ボックスを1列にして見やすく */
+    .container {
+        grid-template-columns: 1fr;
+        width: 90%;
+        gap: 25px;
+        margin-bottom: 60px;
+    }
+
+    .box-015 {
+        min-height: 180px;
+        padding: 30px 20px;
+    }
+
+    .box-015 h2 { font-size: 22px; }
+    .box-015 p { font-size: 15px; }
+
+    .footer-2__content {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
