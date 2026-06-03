@@ -1,29 +1,62 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. 現在開いているページのファイル名を取得（例: index.html）
-    const currentPath = window.location.pathname;
-    const pageName = currentPath.substring(currentPath.lastIndexOf('/') + 1);
     
-    // ナビゲーションメニューのリンクをすべて取得
-    const navLinks = document.querySelectorAll('nav a');
-    
-    // 今いるページとリンク先が一致する場合に、CSSでデザインを変えるためのクラスを付与
-    navLinks.forEach(link => {
-        const linkPath = link.getAttribute('href');
-        
-        // 厳密にページ名が一致するか、またはトップページ（/）の時にindex.htmlをアクティブにする
-        if (pageName === linkPath || (pageName === '' && linkPath === 'index.html')) {
-            link.classList.add('is-current');
-        }
+    // --- Loading Animation ---
+    const loading = document.getElementById('loading');
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            loading.classList.add('is-hidden');
+        }, 1200);
     });
 
-    // 2. ハンバーガーメニューの開閉処理
+    // --- Hamburger Menu ---
     const hamburger = document.getElementById('js-hamburger');
     const nav = document.getElementById('js-nav');
 
     if (hamburger && nav) {
-        hamburger.addEventListener('click', function() {
-            hamburger.classList.toggle('is-active'); // ボタンの「三本線」←→「×」切り替え
-            nav.classList.toggle('is-active');       // メニューの「表示」←→「非表示」切り替え
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('is-active');
+            nav.classList.toggle('is-active');
+        });
+
+        nav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('is-active');
+                nav.classList.remove('is-active');
+            });
         });
     }
+
+    // --- Text Split Animation (1文字ずつ) ---
+    const splitTargets = document.querySelectorAll('.js-split-text');
+    splitTargets.forEach(target => {
+        const text = target.textContent;
+        target.textContent = ''; 
+        
+        text.split('').forEach((char, index) => {
+            const span = document.createElement('span');
+            span.textContent = char === ' ' ? '\u00A0' : char; 
+            span.style.transitionDelay = `${index * 0.05}s`;
+            target.appendChild(span);
+        });
+    });
+
+    // --- Intersection Observer (スクロール連動アニメーション) ---
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.2
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-animated');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.js-split-text, .anim-fade-up').forEach(el => {
+        observer.observe(el);
+    });
 });
