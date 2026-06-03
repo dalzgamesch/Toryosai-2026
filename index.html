@@ -3,95 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>稲稜祭</title>
+    <title>第45回 稲稜祭</title>
     <meta name="description" content="稲稜祭は、早稲田大学本庄高等学院の文化祭です">
     <meta name="keywords" content="稲稜祭, とうりょうさい, 早稲田大学本庄高等学院, 早稲田, 早稲田大学, 早本, 文化祭, イベント, 展示">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
 </head>
 <body>
+    <!-- 背景グリッド -->
+    <div class="grid-bg"></div>
 
+    <!-- ローディング画面 -->
+    <div id="loading">
+        <div class="loading-text">Now loading</div>
+        <div class="loading-bar-wrap">
+            <div class="loading-bar"></div>
+        </div>
+    </div>
+
+    <!-- ヘッダー -->
     <header class="header">
         <div class="logo">
-            <a href="index.html">稲稜祭</a>
+            <a href="index.html">稲稜祭 <span>'26</span></a>
         </div>
-
-        <button class="hamburger" id="js-hamburger">
+        <button class="hamburger" id="js-hamburger" aria-label="メニューを開く">
             <span></span>
             <span></span>
             <span></span>
         </button>
-
         <nav class="nav" id="js-nav">
             <ul>
-                <li><a href="index.html">TOP</a></li>
+                <li><a href="index.html" class="is-current">TOP</a></li>
                 <li><a href="event.html">EVENTS</a></li>
                 <li><a href="shop.html">BOOTHS</a></li>
+                <li><a href="access.html">ACCESS</a></li>
             </ul>
         </nav>
     </header>
 
-    <div class="top">
-        <div class="top-content">
-            <img src="images/logo-kan.png" alt="稲稜祭ロゴ" class="top-logo">
-            <h1 class="heading-36">第45回 稲稜祭</h1>
-        </div>
-    </div>
+    <main>
+        <!-- トップセクション -->
+        <section class="top">
+            <div class="top-content">
+                <div class="top-theme"><span>WASEDA杯</span></div>
+                <h1 class="heading-hero js-split-text text-shadow-solid">第45回 稲稜祭</h1>
+                <p class="fs-desc js-split-text" style="margin: 0 auto;">熱狂のキックオフ。本庄高等学院がW杯に染まる2日間。</p>
+            </div>
+        </section>
 
-    <div class="container">
-        <a href="kaisai.html" class="box-015">     
-            <h2>開催要項</h2>
-            <p>2026年11月1日（土）〜15日（日）</p>
-            <p>10:00〜17:00（最終日は16:00まで）</p>            
-        </a>
-
-        <a href="access.html" class="box-015">     
-            <h2>アクセス</h2>
-            <p>早稲田大学本庄高等学院</p>
-            <p>JR高崎線「本庄駅」・新幹線「本庄早稲田駅」</p>            
-        </a>
-
-        <a href="event_info.html" class="box-015">     
-            <h2>クラス企画</h2>
-            <p>各クラスが工夫を凝らした</p>
-            <p>魅力的なアトラクションや展示が満載！</p>            
-        </a>
-
-        <a href="club_info.html" class="box-015">     
-            <h2>部活動・有志団体展示</h2>
-            <p>日頃の成果を披露する</p>
-            <p>文化部・運動部・有志の熱いステージ</p>            
-        </a>
-    </div>
-
-    <footer class="footer-2">
-        <div class="footer-2__inner">
-            <div class="footer-2__content">
-                <div class="footer-2__logo">
-                    <a href="index.html">稲稜祭</a>
+        <!-- フルウィズセクション 1: 開催要項 -->
+        <section class="full-section">
+            <div class="fs-image" style="background-image: url('https://honjowaseda.cocolog-nifty.com/photos/uncategorized/image001.jpg');"></div>
+            <div class="fs-content">
+                <div class="pattern-stripe"></div>
+                <h2 class="fs-title text-shadow-solid js-split-text">開催要項</h2>
+                <div class="anim-fade-up">
+                    <p class="fs-desc">11月1日〜2日、10:00キックオフ（開場）。<br>最終日は16:00まで。<br>各クラス・団体が作り上げる圧倒的なパフォーマンスと展示をお見逃しなく。</p>
+                    <a href="kaisai.html" class="btn-solid">詳細を見る</a>
                 </div>
-                <ul class="footer-2__sns">
-                    <li>
-                        <a href="#" aria-label="Instagram">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
-                                <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.21.547.522 1.01.923 1.417.41.41.872.721 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.41-.41.721-.872.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.444-.048-3.298c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
-                            </svg>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" aria-label="X (Twitter)">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
-                                <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
-                            </svg>
-                        </a>
-                    </li>
-                </ul>
             </div>
-            <div class="footer-2__copyright">
-                <small>&copy; 2026 稲稜祭実行委員会 広報 Inoue Daichi</small>
-            </div>
-        </div>
-    </footer>
+        </section>
 
-    <script src="js/script.js"></script>
+        <!-- フルウィズセクション 2: クラス企画 (左右反転) -->
+        <section class="full-section">
+            <div class="fs-image" style="background-image: url('https://images.unsplash.com/photo-1555862124-741a4a58b093?auto=format&fit=crop&w=1200&q=80');"></div>
+            <div class="fs-content">
+                <div class="pattern-stripe"></div>
+                <h2 class="fs-title text-shadow-solid js-split-text">クラス企画</h2>
+                <div class="anim-fade-up">
+                    <p class="fs-desc">各クラスがW杯出場国をテーマに装飾！<br>現地の熱気を再現したアトラクションや、趣向を凝らした展示で皆さんをお迎えします。</p>
+                    <a href="event_info.html" class="btn-solid">企画一覧へ</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- フルウィズセクション 3: アクセス -->
+        <section class="full-section">
+            <div class="fs-image" style="background-image: url('https://images.unsplash.com/photo-1490682143684-1436ce2a133e?auto=format&fit=crop&w=1200&q=80');"></div>
+            <div class="fs-content">
+                <div class="pattern-stripe"></div>
+                <h2 class="fs-title text-shadow-solid js-split-text">アクセス</h2>
+                <div class="anim-fade-up">
+                    <p class="fs-desc">早稲田大学本庄高等学院<br>JR本庄駅、または新幹線本庄早稲田駅より。<br>ご来場は公共交通機関をご利用ください。</p>
+                    <a href="access.html" class="btn-solid">MAPを開く</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 稲稜祭実行委員会 広報</p>
+    </footer>
 </body>
 </html>
